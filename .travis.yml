@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t ny2cali/docker-react -f ./client/Dockerfile.dev ./client
+  - docker build -t ny2cali/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true ny2cali/docker-react npm test -- --coverage
+  - docker run -e CI=true ny2cali/react-test npm test -- --coverage
 
 after_success:
   - docker build -t ny2cali/multi-client ./client
