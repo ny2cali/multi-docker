@@ -6,7 +6,7 @@ before_install:
   - docker build -t ny2cali/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true ny2cali/react-test npm test
+  - docker run -e CI=true ny2cali/react-test npm run test
 
 after_success:
   - docker build -t ny2cali/multi-client ./client
